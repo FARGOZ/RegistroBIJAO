@@ -37,9 +37,11 @@ $mensaje = "";
 <body>
     <?php require 'partials/header.php'?>
 
-    <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
+    <?php if(!empty($mensaje)): ?>
+      <p> <?= $mensaje ?></p>
     <?php endif; ?>
+
+
     
     <h1>Login</h1>
     <form action="login.php" method="post">
