@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+
+if(isset($_SESSION['user_id'])){
+    header('Location: /RegistroBIJAO');
+}
+
 require 'database.php';
 
 $mensaje = "";
@@ -34,6 +40,10 @@ if(!empty($_POST['email']) && !empty($_POST['password'])){
 </head>
 <body>
     <?php require 'partials/header.php'?>
+
+    <?php if(!empty($mensaje)): ?>
+      <p> <?= $mensaje ?></p>
+    <?php endif; ?>
     
     <h1>Registro</h1>
     <form action="registro.php" method="post">

@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if(isset($_SESSION['user_id'])){
+    header('Location: /RegistroBIJAO');
+}
+
 require 'database.php'; 
 
 $resultados = [];
@@ -18,7 +22,7 @@ $mensaje = "";
     //validar el ingreso del usuario
     if(count($resultados) > 0 && password_verify($_POST['password'], $resultados['password'])){
         $_SESSION['user_id'] = $resultados['id'];
-        header('Location: /RegistroBijao');
+        header('Location: /RegistroBIJAO');
         exit();
     }else{
         $mensaje = 'Lo sentimos sus credenciales no son correctas';
@@ -41,8 +45,6 @@ $mensaje = "";
       <p> <?= $mensaje ?></p>
     <?php endif; ?>
 
-
-    
     <h1>Login</h1>
     <form action="login.php" method="post">
         <input class="input" type="text" name="email" placeholder="Ingresa tu Correo">
