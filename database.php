@@ -1,4 +1,5 @@
 <?php
+
 //crear variables conectarme BD
 $server = 'localhost';
 $username = 'root';
